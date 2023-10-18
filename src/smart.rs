@@ -3,8 +3,11 @@ use crate::table_gen::generate_cube_table;
 
 fn generate_table_pairs(upper_bound: u128) -> HashMap<u128, u8> {
     let table = generate_cube_table(upper_bound);
-    let mut sum_table: HashMap<u128, u8> = HashMap::new();
-    println!("Calculating {} columns, {} pairs", table.len(), table.len()*(table.len()+1) / 2);
+
+    let pairs = table.len()*(table.len()+1) / 2; // triangle number (factorial with addition)
+    println!("Calculating {} columns, {} pairs", table.len(), pairs);
+
+    let mut sum_table: HashMap<u128, u8> = HashMap::with_capacity(pairs);
 
     for (tni, tn) in table.iter().enumerate() {
         println!("{tni}/{} calculated", table.len());
@@ -24,9 +27,7 @@ pub fn search_taxicab(matches_needed: u8, upper_bound: u128) {
     let sum_table = generate_table_pairs(upper_bound);
 
     for (number, matches) in sum_table {
-        if matches >= matches_needed-1 { // -1 for testing TODO
-            println!("{number}: {matches} matches");
-        }
+        if matches >= matches_needed { println!("{number}: {matches} matches"); }
     }
 }
 
