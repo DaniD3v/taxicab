@@ -6,12 +6,17 @@ mod smart;
 mod dumb;
 
 fn main() {
-    // dumb::search_taxicab(3, 87539319);
-    // dumb::search_taxicab(4, 6963472309248); // doable
+    println!("naive:"); // TODO add time + space complexity here
+    naive::bruteforce_taxicab(2, 2, 1729);
+    println!();
 
-    // smart::search_taxicab(2, 87539319);
-    // smart::search_taxicab(4, 6963472309248);
-    smart::search_taxicab(5, 48988659276962496)
+    println!("dumb:");
+    dumb::search_taxicab(3, 87539319);
+    // dumb::search_taxicab(4, 6963472309248); // barely doable (memory)
+    println!();
 
-    // naive::bruteforce_taxicab(4, 87539319, 6963472309248); // way too slow
+    println!("smart:");
+    smart::search_taxicab(4, 6963472309248);
+    // smart::search_taxicab(5, 48988659276962496)
+    println!();
 }

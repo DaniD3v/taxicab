@@ -6,14 +6,9 @@ pub fn bruteforce_taxicab(matches_needed: u8, lower_bound: u128, upper_bound: u1
     let table_set: HashSet<u128> = table_ordered.clone().into_iter().collect();
 
     println!("Iterations needed per number: {}", table_ordered.len());
-    let mut start = std::time::Instant::now();
 
     for i in lower_bound..=upper_bound {
         let mut matches = 0;
-        if i % 1000000 == 0 {
-            println!("Checking {i} in {:#?}", start.elapsed());
-            start = std::time::Instant::now();
-        }
 
         for tn in table_ordered.iter() {
             if tn > &i { break; }
@@ -21,8 +16,6 @@ pub fn bruteforce_taxicab(matches_needed: u8, lower_bound: u128, upper_bound: u1
         }
 
         matches /= 2;
-        if matches >= matches_needed -1 {
-            println!("{i} has {matches} matches!")
-        }
+        if matches >= matches_needed { println!("{i}: {matches} matches") }
     }
 }

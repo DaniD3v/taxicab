@@ -10,7 +10,7 @@ struct Number {
 }
 
 impl Number {
-    pub fn new(x: usize, y: usize, table: &Vec<u128>) -> Self {
+    pub fn new(x: usize, y: usize, table: &[u128]) -> Self {
         Self { sum: table[x] + table[y], x, y }
     }
 }
@@ -67,9 +67,11 @@ pub fn search_taxicab(matches_needed: u8, upper_bound: u128) {
     }
 }
 
-fn insert(queue: &mut BinaryHeap<Number>, cols: &mut HashSet<usize>, rows: &mut HashSet<usize>, table: &Vec<u128>, x: usize, y: usize) {
-    queue.push(Number::new(x, y, &table));
+fn insert(queue: &mut BinaryHeap<Number>, cols: &mut HashSet<usize>, rows: &mut HashSet<usize>, table: &[u128], x: usize, y: usize) {
+    queue.push(Number::new(x, y, table));
 
     cols.insert(x);
     rows.insert(y);
 }
+
+// TODO add explanation why this algorithm works
