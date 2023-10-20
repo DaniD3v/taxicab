@@ -10,11 +10,7 @@ fn generate_table_pairs(upper_bound: u128) -> HashMap<u128, u8> {
     let mut sum_table: HashMap<u128, u8> = HashMap::with_capacity(pairs);
 
     for (tni, tn) in table.iter().enumerate() {
-        println!("{tni}/{} calculated", table.len());
-
-        for otni in tni..table.len() {
-            let otn = table[otni];
-
+        for (_, otn) in table.iter().skip(tni).enumerate() {
             let entry = sum_table.entry(tn + otn).or_insert(0);
             *entry += 1;
         }
