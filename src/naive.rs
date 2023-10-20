@@ -1,5 +1,5 @@
 use std::collections::HashSet;
-use crate::table_gen::generate_cube_table;
+use crate::other::generate_cube_table;
 
 pub fn bruteforce_taxicab(matches_needed: u8, lower_bound: u128, upper_bound: u128) {
     let table_ordered = generate_cube_table(upper_bound);
