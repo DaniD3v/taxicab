@@ -1,6 +1,6 @@
 extern crate core;
 
-mod table_gen;
+mod other;
 mod naive;
 mod smart;
 mod dumb;
@@ -19,4 +19,6 @@ fn main() {
     smart::search_taxicab(4, 6963472309248);
     // smart::search_taxicab(5, 48988659276962496)
     println!();
+
+    other::get_matches(6963472309248);
 }

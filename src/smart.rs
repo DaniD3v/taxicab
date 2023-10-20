@@ -1,4 +1,4 @@
-use crate::table_gen::generate_cube_table;
+use crate::other::generate_cube_table;
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 

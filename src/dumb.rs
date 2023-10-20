@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use crate::table_gen::generate_cube_table;
+use crate::other::generate_cube_table;
 
 fn generate_table_pairs(upper_bound: u128) -> HashMap<u128, u8> {
     let table = generate_cube_table(upper_bound);
