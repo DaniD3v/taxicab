@@ -24,7 +24,7 @@ pub fn get_matches(number: u128) {
 
         if table_set.contains(&(number - tn)) {
             println!("{tni}³ + {:.0}³ = {number}", ((number - tn) as f64).powf(1.0 / 3.0));
-            table_set.remove(&tn);
+            table_set.remove(tn);
         }
     }
 }
